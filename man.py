@@ -36,12 +36,16 @@ class man:
         iswillingtomovedown = self.destination_y_coordinate-self.source_y_coordinate<0
         if(self.isWillingToMoveEast()):
             self.powerremaining-=(self.powerConsumedForTurns(ToReach.East))
+            self.initialdirection=ToReach.East
         elif(iswillingtomovewest):
             self.powerremaining-=self.powerConsumedForTurns(ToReach.West)
-        elif(iswillingtomovetop):
+            self.initialdirection=ToReach.West
+        if(iswillingtomovetop):
             self.powerremaining-=self.powerConsumedForTurns(ToReach.North)
-        elif (iswillingtomovedown):
+            self.initialdirection=ToReach.North
+        elif(iswillingtomovedown):
             self.powerremaining-=self.powerConsumedForTurns(ToReach.South)
+            self.initialdirection=ToReach.South
         self.powerremaining-=self.powerCosumedForMovingAlongXaxies()+self.poweConsumedForMovingAlongYaxies()
 
         return (200-self.powerremaining)
@@ -59,12 +63,12 @@ class man:
             return 0
         elif(self.isAdjacentto(requireddirection)):
             return 5
-        elif(self.isAdjacentto(requireddirection)):
-            return 5
         elif(self.isOppositeto(requireddirection)):
             return 10
     def isAdjacentto(self,requireddirection):
-        if((self.initialdirection+3)%4==requireddirection or (self.initialdirection+1)%4==requireddirection):
+        if((self.initialdirection+3)%4==requireddirection):
+            return True
+        elif((self.initialdirection+1)%4==requireddirection):
             return True
         else:
             return False
