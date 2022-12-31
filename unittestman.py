@@ -29,10 +29,29 @@ class Test_Gman(unittest.TestCase):
     def test_Change_direction_Two_Times_and_move_top(self):
          self.gman1.assignvalues(1,5,FacingDirection.North,1,2)
          self.assertEqual(self.gman1.computePower(),40)
+    def test_Change_direction_Two_Times_and_move_top(self):
+         self.gman1.assignvalues(2,1,FacingDirection.East,4,3)
+         self.assertEqual(self.gman1.computePower(),45)
     def test_Check_File_upload(self):
          self.gman1.readInputFromFile()
          self.assertEqual(self.gman1.computePower(),45)
-         
+    def test_Change_direction_Two_Times_and_move_top1(self):
+
+         self.gman1.assignvalues(2,1,FacingDirection.East,4,3)
+
+         self.assertEqual(self.gman1.computePower(),45)
+
+    def test_Change_direction_Two_Times_and_move_top2(self):
+
+         self.gman1.assignvalues(0,5,FacingDirection.West,6,1)
+
+         self.assertEqual(self.gman1.computePower(),110)
+
+    def test_Change_direction_Two_Times_and_move_top3(self):
+
+         self.gman1.assignvalues(3,6,FacingDirection.North,1,0)
+
+         self.assertEqual(self.gman1.computePower(),90)
 
 
          
