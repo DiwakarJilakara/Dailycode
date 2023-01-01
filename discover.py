@@ -27,9 +27,6 @@ class Test_Gman(unittest.TestCase):
          self.gman1.assignvalues(3,2,FacingDirection.East,1,2)
          self.assertEqual(self.gman1.computePower(),170)
     def test_Change_direction_Two_Times_and_move_top(self):
-         self.gman1.assignvalues(1,5,FacingDirection.North,1,2)
-         self.assertEqual(self.gman1.computePower(),160)
-    def test_Change_direction_Two_Times_and_move_top(self):
          self.gman1.assignvalues(2,1,FacingDirection.East,4,3)
          self.assertEqual(self.gman1.computePower(),155)
 
@@ -44,6 +41,7 @@ class Test_Gman(unittest.TestCase):
          self.gman1.assignvalues(3,6,FacingDirection.North,1,0)
 
          self.assertEqual(self.gman1.computePower(),110)
+    unittest.main()
 
 
          
